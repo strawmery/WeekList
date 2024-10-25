@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WeeklistApplicationTests {
+class WeeklistTests {
 
-	private WeeklistApplication daysWeek;
+	private Weeklist daysWeek;
 
 	@BeforeEach
 	public void setup() {
-		daysWeek = new WeeklistApplication();
-		daysWeek.createDaysWeek();
+		daysWeek = new Weeklist();
+		daysWeek.daysWeek();
 	}
 
 	@Test
@@ -78,6 +78,13 @@ class WeeklistApplicationTests {
 		assertEquals("Miercoles", days.get(4));
 		assertEquals("Sabado", days.get(5));
 		assertEquals("Viernes", days.get(6));
+	}
+
+	@Test
+	public void clearDaysWeek(){
+		daysWeek.clearDaysWeek();
+		assertTrue(daysWeek.getDaysWeek().isEmpty());
+		assertEquals(0, daysWeek.getSizeWeek());
 	}
 
 }
