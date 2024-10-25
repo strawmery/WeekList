@@ -27,7 +27,7 @@ class WeeklistTests {
 
 
 	}
-	//test returns the days of the week
+	
 	@Test
 	public void getDays() {
 		List<String> days = daysWeek.getDaysWeek();
