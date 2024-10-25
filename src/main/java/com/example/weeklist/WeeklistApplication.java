@@ -29,17 +29,29 @@ public class WeeklistApplication {
 		return createDaysWeek().size();
 	}
 	
-	/*public static boolean deleteDay(String dia) {
-		return crearDiasSemana().remove(dia);
+	public static boolean deleteDay(String dia) {
+		return createDaysWeek().remove(dia);
     }
 
 	public static String getDay(String dia){
-		if(crearDiasSemana().contains(dia)){
+		if(createDaysWeek().contains(dia)){
 			return dia;
 		}else{
-			return "dia no encontrado";
+			return null;
 		}
-	} */
+	}
+
+	public static boolean dayExist(String day){
+		if (createDaysWeek().contains(day)) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public static void daysWeekSort(){
+		Collections.sort(createDaysWeek());
+	}
 
 
 	public static void main(String[] args) {

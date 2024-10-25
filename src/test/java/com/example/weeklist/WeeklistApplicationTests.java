@@ -1,7 +1,6 @@
 package com.example.weeklist;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
@@ -17,19 +16,20 @@ class WeeklistApplicationTests {
 	@BeforeEach
 	public void setup() {
 		daysWeek = new WeeklistApplication();
-		daysWeek.crearDiasSemana();
+		daysWeek.createDaysWeek();
 	}
 
 	@Test
 	public void testCreateDaysOfWeek() {
 		List<String> days = daysWeek.getDaysWeek();
 		assertEquals(7, days.size());
-		
+		assertTrue(days.contains("Lunes"));
+
 
 	}
 	//test returns the days of the week
 	@Test
-	public void listaDias() {
+	public void getDays() {
 		List<String> days = daysWeek.getDaysWeek();
 		List<String> esperado = List.of("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 		assertNotNull(days);
@@ -55,9 +55,29 @@ class WeeklistApplicationTests {
 
     }*/
 
-	/*@Test
-	public void retornarDia(){
-		assertEquals("Lunes", diasSemana.retornarDia("Lunes"));
-	}*/
+	@Test
+	public void getDay(){
+		assertEquals("Lunes", daysWeek.getDay("Lunes"));
+		assertNull(daysWeek.getDay("days"));
+	}
+
+	@Test
+	public void dayExist(){
+		assertTrue(daysWeek.dayExist("Lunes"));
+		assertFalse(daysWeek.dayExist("ternerin"));
+	}
+
+	@Test
+	public void daysWeekSort(){
+		daysWeek.daysWeekSort();
+		List<String> days = daysWeek.getDaysWeek();
+		assertEquals("Domingo", days.get(0));
+		assertEquals("Jueves", days.get(1));
+		assertEquals("Lunes", days.get(2));
+		assertEquals("Martes", days.get(3));
+		assertEquals("Miercoles", days.get(4));
+		assertEquals("Sabado", days.get(5));
+		assertEquals("Viernes", days.get(6));
+	}
 
 }
