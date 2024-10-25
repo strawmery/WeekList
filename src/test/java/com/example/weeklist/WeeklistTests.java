@@ -41,19 +41,12 @@ class WeeklistTests {
 		assertEquals(7, daysWeek.getSizeWeek());
  	}
 
-	/* @Test
-    public void testEliminarDia() {
-		WeeklistApplication diasDeLaSemana = new WeeklistApplication();
-        
-        // Eliminar "Miércoles" y verificar
-        diasDeLaSemana.eliminarDia("Miércoles");
-        
-        // Lista esperada después de eliminar "Miércoles"
-        List<String> diasEsperados = List.of("Lunes", "Martes", "Jueves", "Viernes", "Sábado", "Domingo");
-
-        assertEquals(diasEsperados, diasDeLaSemana.retornarListaSemana(), "El día no fue eliminado correctamente.");
-
-    }*/
+	@Test
+	public void deleteDay() {
+		assertTrue(daysWeek.deleteDay("Lunes"));
+		assertFalse(daysWeek.dayExist("Lunes"));
+		assertEquals(6, daysWeek.getSizeWeek());
+	}
 
 	@Test
 	public void getDay(){
